@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="A complete weather forecast and information web app"
+		/>
+		<title>Weather App</title>
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@500&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="left">
+				<div class="feels icons">
+					<img
+						src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAD/0lEQVRoge2YT2wVVRTGv0t5dUPR6EIhCqK2sNBFbSRujAkktQalJP5Z6YKILnCpNSVogpJggonu1LjxD4mKGg3iAvKiSSVtjAU1Uk2sG0QjaIJBIAGFvp+Ld4aePmfuzDz6yqLvS27eyTnfPed8M3fuzH1SG220MX8AdAFbgHHgjI1xYBhYdLn7iwLoA34jG0eB20vkWwn8BEwCK1vZu4Ae4K9I8wlOALcUyFcBvnPzvgUqrRRQbWjyMWCJjU0N4vYXyLc1RfzWVjW/yhU5D9yRwlltsQQ9kXwrgLMpAs4CK1oh4HFX5NMI7zPH2xThveV4X9tI8GbZ/hYU4Fzr7IkI73tnX5dGAFZJesS5hmwkeJSSD3QRAQud/W+E52MLMzhPSOoweyyEMBJCGJF0wHwdkjLvXhqKCJhN9Dv7VWe/4eyBMgnnWsCNzv48wy71IM+1AL/M/Ju7y9n/lEk41wLGnP06sAxYLuk15x8tk7ApAdQ/A44CR4DuElNfkoTZayX9IumIpDXmqxmnMJq9Aw9IukHSckkPFp1kO86wpkV4IGk4hHAgJZaJZgV0OvuKMhNDCDsl3SOpKum0jaqk/hBCqasvZe/XLUUIoap605eMuX6IZx1tAZcb80LAsibyNjOnqWNmVAAwJGmjc/0eofvYRuCpIg24Wp2SdkvqkdQt6X0u5ZgJ3A3U3GHjkyQhsM35t5mvYpwENeCuEvVm75hpzfzoEn0EdFhsEPjBxSaAdRbrAD5uiOW+a4Buso+ZZT5VLiZc55IcA642/86UIgm2G+ca4Ljz31ug3j7H/8ZGgn3NCNjlErxgvvWR5hMMGHe7872dU2vAcS8AvTYuOH9/LEda0gk3udd8IwUE7Ddun/Mdzqk16rjvOv97zl/qA0/A327yleY7U0DACeNe5XwnI3XudLwp4FYXu42Zm8jqtBxZ22hw9lSSs8Q1mHJ2bKt+2Nl7QwgX//UIIRyWtDeDm5v8mLNvst/xSCMJEs7Nzhd7d6xx9jsp8V3OXpuWIEvAQWffb7+vRBpJ8HLDHCku3B/yv0yJj2Rw4wAecmvvONBl/hcj6/954ywG/nT+zBMbcMrxlqTEl7r4qTICKsDPbvJuIFjsPuAL4LSNKtPbZwA+dPMmiXwOAF857tMp8WdcfCwtR0zEhoYr/EFyJzL4ixuarwHrc2o86fjngCG76kut+XMuvrmUACvQuGT+AJ6l/qJZZKMXeI6ZywZgR4H8ncx862bhIM182AELUkTkoQbsAAqdNahf7UM5zf/v+SgrZJD6es7DJDnLJiN/J/XlNMb0szUKbM678iEWbChSkTQoaYOkPknXW+hXSYck7ZG0J4RwvqyANtpoYx7jPxFVQ/JHETI2AAAAAElFTkSuQmCC"
+					/>
+					<div>
+						<div class="left-p">Feels Like</div>
+						<p id="feels-like" class="value"></p>
+					</div>
+				</div>
+				<div class="min-temp icons">
+					<img
+						src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAC8klEQVRoge2YXUtUURSG1/ajbtSiLirog6yU7hqlu6IbLwpLheoHSP2DMAoKLMGooH6CRFd9kHkVJgRd2weUBRlGVKQFI0VeKfp0MWtwdebMnuOZYY7keWEza9Z69zrve2bPntlHJEWKFGsLQCNwERgH5nSMAxeAhqT1eQG0A98oji9AW9I6QwG0ALMe8Xlkgb1J6y0AMBYQeQbYpuNswNxo0nr/AbDfiFsADoZw2oB5w2uthraaiLxDJn7inBsPEpxzr0TkqUkdLkdYVEQ1sMXEEx7eGxNvXYkQoFU3gc/AvqjzohqoM/G8h2drdUVZ4TgpIjtEZJeInIo6KaqBamCdiddHnbSaDMRCaiBpxDYQd9eoNMr5BGLtGpVGOQZi7RqVxtr9DqwWpAaSxpoxsDNG7zhzVoySBoA+Eek1qe8euq31AufiCosKrwHgiIhcN6nHIjLkmTKknDxuAlU52BQAqAfemyPiQ6BWa93AO1ObADq1Vgs8CtRKng2AfjOnvxIGOk3DaWCT5m9QHAPK2QzMmPyxkP4tQB+wu5gBoBk4D7TEMXDXNLyquS6P+DyOKnfA5O6E9P+ktSyQCRog95Agq++n4hiYMA0zmnsewcCocttN7m1I/0lTzwLD5v2wEQ/wIY6B36bBBs3NRTCQVe5Gk/sV0j8TEFm0H3oDw+DbhZyJF/PXXcE9WDRxwXWcc69FpENEZj09ZkWkQ7mh8BmYNnGzvhY8DwpBnrPH5EJ/O0qYKClexG/ghYlP6OttXzPFrcAcEY/xIiYiifcCOG3W4QzQqPlrnvV6RTlNwE+TL3liAw4AUzoOxBZuGtYDH42Ie4DT2nHgGfBHxxjL26cDHph5k0B92YJimugJ3OH7+U+iCL8pIH4J6Kqm5jBRwSXzA7hEbhts0JEBLgeWDcBgouLVQE2IiVJYAgaB1XPeIPcHbtKvG5RTtWXjSlOWQe7L2C0iPSLSLiLbtfRVRF6KyIiIjDjnFiopMkWKFP8x/gIlBIqsy6QViwAAAABJRU5ErkJggg=="
+					/>
+					<div>
+						<div class="left-p">Cloud Cover</div>
+						<p id="cloud-cover" class="value"></p>
+					</div>
+				</div>
+				<div class="sunrise icons">
+					<img
+						src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAADV0lEQVRoge2Zy2sUQRDGv06CbjARA14UoxDxgfsnKOjJi/gAvXgwIY8lMQcVJMF4NvknJF49xehF73rwhYJREgQRDaIXyYasoIj68zA9Sds7m8wMM7sH94OBnqnq6q96qrqrZ6QmmmgiFwAHgEXgA7Avr3Fa8jIs6aykbkl7JJ3La5A8HdjktDfnNUieDtQFeTrwvUa7/gA2AxPARSCW00AP8M5ePTH7tACjwDUgu7ADxlnDdFwnEo7RYm2HGI/TLy6RstMekHQzSyesrZvWdoilrOxHzQ5Af4b2Bzzbsd9yWxwlY8wfoGRvw1mqilGgS9IZSaclHZS0y4o+SVqQdE/SXWPMste14LRvSSoZY/7E4ZYI9k0M2GRuc5632yRfZmOUbZIWnP5tNnn788ivjZzaCTyLQdzHS6C7rmRrkF/0iL0CLgGHgC32KgKXgTlPdxHY2Sjy7cBzh8wPYHi9ECAIwRGrG+KpG051A0HMu+SPJuh7zHMi1pqfGYAu/k3Y4RQ2Ljr9y8C2PLjWGrzfi/nEKwfQ6uVEXxouaZesU057OlyzgSmgAkxGEJ4CvoUyY8xvSdM1bMaGiRhor4LNKFznf0maNca8d3TeStpvb4vGmHn7vCKpQ1LFGLPVs1slA4qS3liVt8aYg0l4RIKgevTxztNZcWSdzvNJ+wZuRNitkgGdjp2VpDwydyApsnAgqhY6Lum8pJBYRdJtT+eLI++WNJ/Sh91O+3MKHukAzDqzctmTPYqYuRAPPd0rjmwmDZe0q9A9pz3Iv8vo9nX6rcqAVkmDNWzmC4KNrOzM3ogjOwn8jJj9n8AJR2/UkS1Rz43MErjmEPgBHHNkR4AHwFd73QcOO3K/lBirK3lLokBQiLlOrHvoJ9h9Rz3yj8nyAJ8ERJfTcwSlcxHosFfRJuxrT/cjsKMh5B0ndgBPImJ+I7yg3gcagnp+yIZKq/O8QPDppVyb7yqWgDGcsGEttIbI60hJ9ZeJqhIa2Ab0AXeABYLSoWLbM0AvEasNwUEoRPbfnSLIA1zI0H6vZztbJ4BSngPUmKBYh6S4JNzSOPPvNtZWydoOkd3GRpCkV5MkGSn+0Ng3MYz33aghAK474TCR1zjNPzSNxv/xhyYNSPGHpokmmkiOv5uLrDycbjxCAAAAAElFTkSuQmCC"
+					/>
+					<div>
+						<div class="left-p">UV Index</div>
+						<p id="uv-index" class="value"></p>
+					</div>
+				</div>
+				<div class="sunset icons">
+					<img
+						src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAADWklEQVRoge2Zy2sUQRDGv06CbjARczQYhYgP3LNHMSdvGkEvHkxMcMnjoIJEfFyN/0SIV08x+i8EwRcKRkkMBNEgesuGrGDwkZ+H6dG2d2adWWY2B/eDgZ7u6qqvZqp6qnukJppoIhcAh4AV4D1wIC87LXkplnRGUo+kfZLO5mUkTwe2Oe3teRnJ04GGIE8Hvsa0Gw9gO3ADGAMSOQ30Asv26k04pwUYB64D2YUdcI0/mE7qREobLVZ3iGtJ5iUlUnbaw5KmsnTC6pqyukOsZqU/6ukADGWof9jTnfgttyURMsZsAiV7Gz6lqhgFuiSdltQv6bCkPXboo6RFSQ8lPTDGrHlTC077rqSSMWYzCbdUsG9i2CZzm9PfbpN8jX+jbJO04Mxvs8k7lEd+/cupbuBZAuI+XgI9DSUbQ37FI/YKuAQcAXbYqwhcBuY92RWge6vItwPPHTIbwEitECAIwVErG+KpG04NA0HMu+SPp5jb5zmRaM3PDEAXfyfsSB06xpz5ZWBXHlzjjA95MZ965QBavZwYrIdLvUvWKac9Ha7ZwB2gAkxGEL4DfAnHjDE/JU3H6EwME2Fov4KPUbjO/5A0a4x558gsSTpob4vGmAXbX5HUIalijNnp6a0aA4qS3liRJWPM4TQ8IkFQPfpY9mTWnbFOp3/SvoHbEXqrxoBOR896Wh6ZO5AWWTgQVQudkHROUkisIumeJ/PZGe+RtOAZPybplqSjtuuZpEljzCNPz16n/akOHvUBmHWeymVvrB/4HvH0vgEnPdkrzvhMJuQSOnDBMTyPs4wCbyPIh1h05FqB187YQCMd6CL4+IQYdcbmajgw58iNO/2rNPJDZglcdwhsAH0p5vqlxESeXONIFAgKMdeJmpt+GzbjHvnHZLmBTwOiy+l5gtK5CHTYq0iQsK892Q/A7i0h7zixG3hSI+7j8IJGb2gI6vmLNlRanf4CwdFLOZ7vb6wCEzhhw5/QukheW0qqTyaqSmhgFzAI3AcWCUqHim3PAANErDYEG6EQ2Z87RZAHOJ+h/gFPd7ZOAKU8DcQ8oESbpKQk3NI483Mbq6tkdYfI7sNGkKRX0yQZdfyhsW9iBO/caEsA3HTC4UZedpp/aLYa/8cfmnpAHX9ommiiifT4BTGo2By5MHsTAAAAAElFTkSuQmCC"
+					/>
+					<div>
+						<div class="left-p">Visibility</div>
+						<p id="visibility" class="value"></p>
+					</div>
+				</div>
+			</div>
+
+			<div class="center">
+				<div class="input">
+					<input type="text" class="input-bar" placeholder="Enter location" />
+					<button type="submit"><i class="fas fa-search search"></i></button>
+				</div>
+				<div class="weather-card">
+					<div class="location">
+						<h1 id="city"></h1>
+						<h1 id="country"></h1>
+					</div>
+					<div>
+						<h1 id="temp"></h1>
+					</div>
+					<div>
+						<p id="desc"></p>
+					</div>
+					<div class="time">
+						<p id="time"></p>
+						<p id="date"></p>
+					</div>
+				</div>
+			</div>
+
+			<div class="right">
+				<div class="humidity icons">
+					<img
+						src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAADfUlEQVRoge2YS0hUURjHzxhpoWaQhpCphT2wfRFIT3sSpemiFtaiF9Y22lhgQYHtkrCHRJtcWNue1KoiiLIg0LQsNbAWUaMGpqH+Wtwz9c3x3jtz79xRF/OHy9x7vv/5f//vnDNnzh2lUkghhRRmPICLwCDQMN1ePAM4SDQOTLenuAEUAGGjgDBQkIRcK4BOoAtYHpToXexxL5AE//OkA2+EfhswO1HRLUJwHKjTnxFUBORfAadtBqkuEcE0Y0SadXuzaOsA0gIwvwz4bVPAMFDiV7RSCI0Ahbq9CBgNahaAEPBE6L3TVwSP/QrfESJXjNg1EWtNsIBqoTUGrNbXmGiv8iPcKwTWGLG1ItaTgPl0oFtoNYpYo2j/CKR7FR8RAllGLEvERhIo4IjQGQbyRSxft0VwyKv4F9F5kxErF7Fen+ZnAR+EziUbjpyFLrxsGMBVuUy06SysrbVHxJp8FrBRziKwyIZTYKyEDV4SFGGdfdwwgN6dfBTQJHRuufBaBO+y1yTlLkUMAJtt+jQQx6EPeCu0drnwdgtem6cCtEChHq0+rP2/Tz9PGnmgxiiyxkVXnq/yXHgLBe+n5wLiBVAMDBkFDAFFDnzJzXbRzRG8QTtOEEeBkFLqulLKNJKtlGrWcROfxP2kpegQ6/bnMAaI3s/HgDNE/5IetulzTsTfAzk2nPlY22cE9ckwX4D1hY7gvG6/INoGMN4fgDyjXyfW+WuevvYa5sPAgmQU0CqSdAAZuj1DP0cw6cykDcvjuRPGgT3JML9eJJkAyox4mW6PYJ2NRoUxEybCSTGvk79yG2HNuS04Lx04ucBZrLewX1g71GugnmQsG510pzA2ChQ78JYAfwR3e1IMeQXwXJi6EYN7U3CfTpVHN0MlxtpfGYNfKr4LE8DSIP34+SHbL+6fhUKhTjdyKBTqUEq9iDwqpfb5yOkIPwVsFfctcfaRJ85tPnIGB+CHWEKlcfZZJfp8T7bHWGbkrjInzj5z5a4VpB8/S0iOYG6cfeSROdAZ8FNAu7jfEWcfyWt3ZE0FgBNiOXRj/Gthw88m+j26dqq8OhnKAr4JQ/editDmHwhuP5A51Z7tjFUTfVD7DBwFFmP9YVUIHDNGfgKonG7v/wCcMopwwwRwcro9TwJQBXyNYb5/Ro28CSATOA480mZH9edDoHZGrPkUUkhh5uIvIMnZMGRUEKEAAAAASUVORK5CYII="
+					/>
+					<div>
+						<div class="right-p">Humidity</div>
+						<p id="humidity" class="value"></p>
+					</div>
+				</div>
+				<div class="pressure icons">
+					<img
+						src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAADBElEQVRoge2YzUsVURiH3zFr4WdLbZnRKrWF2YdCWe37B9q0C21R9LEogjaV2iK9mzShXQVBm9q0EKEgWtQqLYmQIIUirEClzLCnxZyp917n60z3zkjMA5d7Oe/7nvn9zpwz98wRycnJyfmvAA4DY8AbYMl8poGbwCGLfjYDg8A74If5HgAaKyW8BXhCNBPAtoi+GoDJgPqXQH1ZXQPdwNcY4j0+A90h/V2LqB8sm2tgO/BF5X4HrgO7gFrz6QSGTMxjHmgJ6HNK5fUCNUCfapssj2u3bkLlvAfaQka2zeR4TATkLamcGtNWq9qWyuIa6FHxZaA1SHyJiWVVdzBCS5/RciJMSyLXwC0VH44Sr+qGVd2oT3yQcPr9OrV2TfGa6bQwsFvVTfvE63HXnR/+6zGJa/4+eX5i7lpMA/Wq34WAnEagH5jBnXIzwFWgIaxTK9fAJWABGIgrPq6BRFi7Tn6dPcrA63L2nQpAQRkYyVqPFUA7xY/Rnqw1xcaIn1Xix7PWFAlQZ+Z8oWTk54GtPvn7gXvAB2AFmAPuAl1RF7pC8V6lksyXCgI2ADci6gpAtZ94B1issGiPcfxHfjRmfSHoDlymMndgEXgFjBCwYIEDJTX3gZ24W5kO4IGK/QL2hU6ntMGd81q845OjTdzOQmcguK+fHu0BOR0qZzZtjaEAp4BvwFhIjt5+LKepryzgvuGtuQNVWYqy5Lz6/TgzFTYAm8zIPyx5Cu31S07zj+xfGNK6HSPeEZEFEalLZWiTgYgUROS04zirXmOViIjjOF5wva3uVRGZE5E7ItLlOM5JLT5zgGbgDMWbvCNZ67IGOKsMPErrorGPIYELuHsi36MXYIsy8CkN8VbHkMBHE1sFmiMMWL3kJ/0juygiOwJirSaueauud8yn5qj6PZVQU3ywPIYEjqvYipnzTWbkz5Us4t40DFgdQwLVwPOAKad5AWxMw0CSY8gmIzBM/Jr1USkD9oev8mdv0ws8w72Li8BT01b5kVdC7A9f1xukdAyZk5MTzm9auiTZeLIC6wAAAABJRU5ErkJggg=="
+					/>
+					<div>
+						<div class="right-p">Air Pressure</div>
+						<p id="pressure" class="value"></p>
+					</div>
+				</div>
+				<div class="rain icons">
+					<img
+						src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAC1ElEQVRoge2YTUsVYRTHz2RZ5JVcpaC5CmohtI3oQrUqXFQobltkBdUqQwraRNYHqI9QFgUtgjLKqEX0AaykiIttvPdKhEWJaMn9tZiJzgzNM+8zLuYPFx6Y/znn9zx35nkTKVWqVKkiZaWZDOgVkaMiMigiO0Wk13lUF5GaiDwWkUeWZTXSrJtYQDdwC1glWCvATWB70dwiIgJUgWYIcK++AIeKhj8O/PaAPQNOAruADue3GxgFnnu8v4BjRcHvA5YVzAdgf4i4KvBRxS0De/Ng1hBbgJqCeAlsixDfBbxS8Z+AzVkyewGueEY+NLzK0eX5Jy5nwfq/whuBhioc+NoYclVVnnmgLU1Wv6KD+oNNId+0ync4avyGGDWrqn0/RrxXD3xyh1KcDgyo9psY8V69Vu09KeT7J6ACnAdeAHVgDbc6U6jR6cm55tSaBs4BHXETjwAL+GslKbyqZdqCNIHhqAkvAS1D0lVgIsUOXA/oRAsYD5tsxANfw94G9JHDNAe0ObVO4V4sW8BQUHAF92vzhLjvYApyeKYUT8PIg/3B6pEvDF4xVYA5xXXWZNaLymiOnEYBpxWX/+KJPX39VV+OjEYB/Ypr3mTUM0F7joxGAe2KyzV9e1fir6q9Po58tnpUe1E/8HZgVrWPZIYTXXqT987Xhb1061mokj2bWdhbjdCzUAX3AX2qyE448E8VTxPYGhQ0jHslnnOmsR3ktxL3A2eAz4qjRdgLAGAc814ob7WAsagjMYT76FiU6hhG3ni1iL2VOCH2deGAiHSLSPbnVpEFEZkRkYcics+yrKVUsgJ31cjMApsM3sksvEngq7i/i4MZedO/bsS+SnmrikwGeGfS9ibtwEVV5Af2NbqfdywLbxL4HuC7KnQhI2+0aTJCB+6oIu8xf4y3s/Am7cCSU6QFHAjwfovhJcibSMAE8BO4EcJ7FVgErqXpLVWqVKn1qz/Wu4paawvmgQAAAABJRU5ErkJggg=="
+					/>
+					<div>
+						<div class="right-p">Chances of Rain</div>
+						<p id="rain" class="value"></p>
+					</div>
+				</div>
+				<div class="wind icons">
+					<img
+						src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAACiElEQVRoge2ZPWgUQRSA38RoobE3lkbsvFjE+JOAidrbi42dpFL8KbTWUnPXaAykUyFgo41FEAyIhen8CWJnAoqcCjmJIXJ+Fjsr7/b25/bW3TllPzhYdt7b/ebN7O7snkhJSUnJfwVwEpgF3gHf7W8ZuAuccO0XCTAELJLMU2Cva98WgHHgWwfyPl+AcdfeIiIC7AO+KrkfwC3gILDD/kaBadvmUweGXPuLnRI+H4BKTGzFxvyZTkW6hglNKpkNYH8HORUb63O8CNcomTklUk2RV1V5M3k6Jom8UiKjKfIOqbzlPB2TRPw7z09ge4q8naoDa1kc+rIki0hVRBoictMYs57xWP8OwGE1Am+zHCvrCHTLabW96MihO4DhwG100rVTx1j5FSW/4NopEWDAzvlaoPJ1YE9I/DFgHvgIbAKrwANgLOlEN2hdq+RJPSgEbAFuJ+TVgP4weQM0cpb2WSC88jMd5teiRuA6+YxAA3gD3CHiggUmAjkPgQN4K9kR4JFq+wUcjZ1ORYM357W8CYnRnbjnwjMSvNdPn+GImBEVs1K0YyzABWAdmI2J0eunjSL9/gp4b3htI+BqKdENV9X2M2cWaQC22co/DtyFjoQFF/kgy8K09jZW3ojImogMFFLa7kBEaiJy0RjT9Hf2iYgYY/zGXru6myKyKiL3RWTMGHNeyzsHGAQu0brIO+XaKzXAZdWBJ6592gCu4a2JQj+9ALtVBz4X7ZcI8MnKNYHBkHbdgVRfKYp6kL1X5zsb0n5Gbb/OXyclwDlV4U0753fZyl8JXMRTrn3bAPqBlx08pJaAra59Q7EVX0qQb7s+egq8tc0U8ALvr6cG8Nzu683Kl5SUlMTyGwbjzxwZ8Fh4AAAAAElFTkSuQmCC"
+					/>
+					<div>
+						<div class="right-p">Wind Speed</div>
+						<p id="wind" class="value"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="credit">
+			<p class="made-by">
+				Made by <a href="https://www.github.com/abdul-imad">Imad</a>
+			</p>
+		</div>
+
+		<script src="app.js"></script>
+	</body>
+</html>
